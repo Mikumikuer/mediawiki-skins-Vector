@@ -26,3 +26,26 @@ Example configuration:
 
 * Type: `Array`
 * Default: `false`
+
+MenuSidebar Modify
+---------------------
+
+Create your own wikitext based sidebar
+
+add `$wgVectorMenuSidebar = true;` in `LocalSettings.php` to activate MenuSidebar.
+
+Sidebar style is built in backend, edit ./components/MenuSidebar.less to customize MenuSidebar.
+
+example for `Mediawiki:MenuSidebar` by default style settings:
+
+	MenuTitle #1
+	* '''NotLink Item must use Boldtext tag''' 
+	** [externalLink Item]
+	*** [[Item]]
+	MenuTitle #2
+	* [[Link Item]]
+	** '''NotLink Item'''
+	*** [[Item]]
+	**** [[item Level can be infinite]]
+	{{#Parser Function Item}}
+
