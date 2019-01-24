@@ -51,3 +51,4 @@ example for `Mediawiki:MenuSidebar` by default style settings:
 	**** [[item Level can be infinite]]
 	{{#Parser Function Item}}
 
+Example site with MenuSidebar: www.gfwiki.org
