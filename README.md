@@ -32,6 +32,8 @@ MenuSidebar Modify
 
 Create your own wikitext based sidebar
 
+requirement:`Font-awesome`
+
 add `$wgVectorMenuSidebar = true;` in `LocalSettings.php` to activate MenuSidebar.
 
 Sidebar style is built in backend, edit ./components/MenuSidebar.less to customize MenuSidebar.
