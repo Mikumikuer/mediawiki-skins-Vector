@@ -177,7 +177,7 @@ class VectorTemplate extends BaseTemplate {
 		if ($wgVectorMenuSidebar === true) {//Setting $wgVectorMenuSidebar = true; in LocalSettings.php to enable MenuSidebar
 			$MenuSidebar = wfMessage( 'MenuSidebar' )->parse();//parse Mediawiki:MenuSidebar
 			echo '<div id="MenuSidebar">'.$MenuSidebar;
-			echo '<p>'.wfMessage( 'toolbox' )->plain().'</p><ul>';
+			echo '<p>'.wfMessage( 'toolbox' )->plain().'</p><ul id="MSToolbox">';
 			foreach ($toolbox as  $msg => $content) {//get Toolbox links
 				if( $msg=='feeds' ){//detach atom feeds since I don't know how to echo this :(
 					continue;
@@ -186,7 +186,8 @@ class VectorTemplate extends BaseTemplate {
 				}
 			}
 			echo '</ul></div>';
-			echo '<script>childlist = document.querySelectorAll("#MenuSidebar li>ul");for(var i=0;i<childlist.length;i++){childlist[i].parentElement.classList.add("child")}</script>';//If a <li> contains <ul>, add "child" class to it
+			echo '<script id="navbarInit">childlist = document.querySelectorAll("#MenuSidebar li>ul");for(var i=0;i<childlist.length;i++){childlist[i].parentElement.classList.add("child")};$("#navbarInit").remove();</script>';//If a <li> contains <ul>, add "child" class to it
+			echo '<script id="ToolboxInit">childlist = document.querySelectorAll("#MenuSidebar > ul#MSToolbox > li");for(var i=0;i<childlist.length;i++){if(childlist[i].innerHTML === ""){$(childlist[i]).remove()}};$("#ToolboxInit").remove();</script>';//dealwith toolbox parser bug
 			return true;
 		}
 		// Force the rendering of the following portals
